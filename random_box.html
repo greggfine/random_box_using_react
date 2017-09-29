@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>First React Component</title>
+	<script src="https://unpkg.com/react@16.0.0-rc.2/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16.0.0-rc.2/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+	<div id="app"></div>
+	<script type="text/babel">
+		class RandomBox extends React.Component {
+			render() {
+				const randFont = function randFont() {
+					return (Math.random() * 3)
+				}
+				const fontSize = `${randFont()}rem`;
+				const r = Math.round(Math.random() * 255);
+				const g = Math.round(Math.random() * 255);
+				const b = Math.round(Math.random() * 255);
+				const randColor = `rgb(${r},${g},${b})`;
+				return (
+					<div className="container">
+						<div class="box" style={{fontSize: fontSize, backgroundColor: randColor}}>Random Box</div>
+					</div>
+				)
+			}
+		}
+
+		ReactDOM.render(<RandomBox />, document.getElementById("app"));
+
+	</script>
+	
+</body>
+</html>
